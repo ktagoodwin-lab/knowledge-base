@@ -1,11 +1,11 @@
 import type { SVGProps } from "react";
 
 export type IconName =
-  | "search" | "chevron-right" | "chevron-down" | "arrow-right" | "check"
+  | "search" | "chevron-right" | "chevron-left" | "chevron-down" | "arrow-right" | "check"
   | "click" | "cards" | "choice" | "connect" | "drag" | "sort" | "order"
   | "bug" | "edit" | "marker" | "puzzle" | "bubble" | "grid" | "pen"
   | "speech" | "mic" | "sparkle" | "graded" | "ungraded" | "book"
-  | "compass" | "flag" | "close" | "copy" | "thumbs-up" | "thumbs-down" | "menu";
+  | "compass" | "flag" | "close" | "copy" | "thumbs-up" | "thumbs-down" | "menu" | "sidebar";
 
 type IconProps = Omit<SVGProps<SVGSVGElement>, "name"> & {
   name: IconName | string;
@@ -37,6 +37,8 @@ export function Icon({
       return (<svg {...common}><circle cx="11" cy="11" r="6.5"/><path d="m20 20-3.5-3.5"/></svg>);
     case "chevron-right":
       return (<svg {...common}><path d="m9 6 6 6-6 6"/></svg>);
+    case "chevron-left":
+      return (<svg {...common}><path d="m15 6-6 6 6 6"/></svg>);
     case "chevron-down":
       return (<svg {...common}><path d="m6 9 6 6 6-6"/></svg>);
     case "arrow-right":
@@ -97,6 +99,8 @@ export function Icon({
       return (<svg {...common}><path d="M7 13V4H4v9zM7 13l4 7a2 2 0 0 0 3-2l-1-5h5a2 2 0 0 0 2-2.4l-1.4-6A2 2 0 0 0 16.6 4H7"/></svg>);
     case "menu":
       return (<svg {...common}><path d="M4 7h16M4 12h16M4 17h16"/></svg>);
+    case "sidebar":
+      return (<svg {...common}><rect x="4" y="5" width="16" height="14" rx="2"/><path d="M9 5v14"/><path d="M6.5 8h.01M6.5 11h.01M6.5 14h.01"/></svg>);
     default:
       return (<svg {...common}><circle cx="12" cy="12" r="6"/></svg>);
   }

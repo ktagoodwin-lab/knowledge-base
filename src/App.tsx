@@ -93,7 +93,7 @@ function Sidebar({
   }, [currentSectionId]);
 
   return (
-    <nav className="kb-side" aria-label="Knowledge base navigation">
+    <nav id="knowledge-base-navigation" className="kb-side" aria-label="Knowledge base navigation">
       <div className="kb-side__list">
         {sections.map((s) => {
           const isOpen = open[s.id];
@@ -572,20 +572,22 @@ function SearchOverlay({
 }
 
 // ---------- header ----------
-function Header({ onMenu }: { onMenu: () => void }) {
+function Header() {
   return (
     <header className="kb-header">
       <div className="kb-header__inner">
-        <button className="kb-header__menu" onClick={onMenu} aria-label="Menü">
-          <Icon name="menu" size={18} />
-        </button>
-        <a className="kb-header__brand" href="#willkommen">
-          <span className="kb-header__brand-mark">SK</span>
-          <span className="kb-header__brand-text">
-            <span className="kb-header__brand-name">{KB_DATA.brand.name}</span>
-            <span className="kb-header__brand-sub">{KB_DATA.brand.subtitle}</span>
-          </span>
-        </a>
+        <div className="kb-header__brand-stack">
+          <a className="kb-header__brand" href="#willkommen">
+            <img
+              className="kb-header__brand-logo"
+              src="/logo-dark-e1706538837575.png"
+              alt="Deutsch Akademie"
+            />
+          </a>
+        </div>
+        <div className="kb-header__brand-text">
+          <span className="kb-header__brand-name">Wissensdatenbank</span>
+        </div>
       </div>
     </header>
   );
@@ -596,9 +598,6 @@ export default function App() {
   const defaultId = "willkommen";
   const [articleId, setArticleId] = useHash(defaultId);
   const [searchOpen, setSearchOpen] = useState(false);
-  const [sideOpen, setSideOpen] = useState(() =>
-    typeof window !== "undefined" ? window.innerWidth > 880 : true
-  );
 
   useEffect(() => {
     const fn = (e: KeyboardEvent) => {
@@ -623,20 +622,14 @@ export default function App() {
 
   return (
     <div className="kb-root">
-      <Header onMenu={() => setSideOpen((v) => !v)} />
-      <div className={`kb-shell ${sideOpen ? "is-side-open" : ""}`}>
+      <Header />
+      <div className="kb-shell">
         <div className="kb-shell__sidebar">
           <Sidebar
             sections={KB_DATA.sections}
             currentArticleId={article.id}
             currentSectionId={article.sectionId}
-            onPick={(id) => {
-              setArticleId(id);
-              const isMobile = window.innerWidth <= 880;
-              if (isMobile || id === "click-tutorial") {
-                setSideOpen(false);
-              }
-            }}
+            onPick={setArticleId}
           />
         </div>
         <main className="kb-shell__main" ref={readerRef}>
