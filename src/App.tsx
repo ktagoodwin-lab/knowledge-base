@@ -10,6 +10,67 @@ import {
 import { KB_DATA, KB_FLAT, type Article, type FlatArticle, type Section } from "./data";
 import { Icon, KIND_ICONS, SECTION_ICONS, type IconName } from "./Icons";
 
+// ---------- welcome / home page ----------
+function WillkommenPage({
+  onOpenSearch,
+  onPick,
+}: {
+  onOpenSearch: () => void;
+  onPick: (id: string) => void;
+}) {
+  return (
+    <div className="kb-home">
+      {/* Cover placeholder */}
+      <div className="kb-home__cover">
+        <div className="kb-home__cover-inner">
+          <Icon name="sparkle" size={28} strokeWidth={1.5} />
+          <span className="kb-home__cover-label">Cover wird noch hinzugefügt</span>
+        </div>
+      </div>
+
+      {/* Search */}
+      <div className="kb-home__search-wrap">
+        <button className="kb-home__search-btn" onClick={onOpenSearch}>
+          <Icon name="search" size={16} />
+          <span className="kb-home__search-placeholder">
+            Artikel, Aufgabentyp oder Tipp suchen…
+          </span>
+          <span className="kb-home__search-hint">
+            <Kbd>⌘</Kbd>
+            <Kbd>K</Kbd>
+          </span>
+        </button>
+      </div>
+
+      {/* Section grid */}
+      <div className="kb-home__sections">
+        <h2 className="kb-home__sections-heading">Aufgabentypen</h2>
+        <div className="kb-home__grid">
+          {KB_DATA.sections.map((s) => (
+            <button
+              key={s.id}
+              className="kb-home__card"
+              onClick={() => onPick(s.articles[0].id)}
+            >
+              <div className="kb-home__card-top">
+                <span className="kb-home__card-icon">
+                  <Icon name={SECTION_ICONS[s.id]} size={20} strokeWidth={1.7} />
+                </span>
+                <span className="kb-home__card-kicker">{s.kicker}</span>
+              </div>
+              <div className="kb-home__card-label">{s.label}</div>
+              <div className="kb-home__card-summary">{s.summary}</div>
+              <div className="kb-home__card-count">
+                {s.articles.length} {s.articles.length === 1 ? "Artikel" : "Artikel"}
+              </div>
+            </button>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
 // ---------- helpers ----------
 function highlight(text: string, q: string): ReactNode {
   if (!q) return text;
@@ -319,7 +380,7 @@ function GifShell({ article, src }: { article: Article; src: string }) {
 
 // ---------- article body ----------
 function ArticleDemo({ article }: { article: FlatArticle }) {
-  if (article.id === "willkommen") return null;
+  if (article.id === "willkommen" || article.id === "anleitung") return null;
   const gif = GIF_DEMOS[article.id];
   if (gif) return <GifShell article={article} src={gif} />;
   return <VideoShell article={article} />;
@@ -328,6 +389,7 @@ function ArticleDemo({ article }: { article: FlatArticle }) {
 function ArticleBody({ article, query }: { article: FlatArticle; query?: string }) {
   if (article.embedUrl) return <EmbedOnly article={article} />;
   return (
+    <>
     <article className="kb-article" key={article.id}>
       <header className="kb-article__head">
         <div className="kb-article__crumbs">
@@ -395,13 +457,15 @@ function ArticleBody({ article, query }: { article: FlatArticle; query?: string 
 
       <ArticleFooter article={article} />
     </article>
+    <VoteWidget key={article.id} />
+    </>
   );
 }
 
-function ArticleFooter({ article }: { article: FlatArticle }) {
+function VoteWidget() {
   const [vote, setVote] = useState<null | "up" | "down">(null);
   return (
-    <footer className="kb-article__foot">
+    <div className="kb-vote-outer">
       <div className="kb-vote">
         <span className="kb-vote__q">War dieser Artikel hilfreich?</span>
         <button
@@ -423,9 +487,14 @@ function ArticleFooter({ article }: { article: FlatArticle }) {
           <span className="kb-vote__thanks">Schade — wir verbessern den Artikel.</span>
         )}
       </div>
-      <div className="kb-article__nav">
-        <PrevNext article={article} />
-      </div>
+    </div>
+  );
+}
+
+function ArticleFooter({ article }: { article: FlatArticle }) {
+  return (
+    <footer className="kb-article__foot">
+      <PrevNext article={article} />
     </footer>
   );
 }
@@ -620,6 +689,8 @@ export default function App() {
     if (readerRef.current) readerRef.current.scrollTop = 0;
   }, [articleId]);
 
+  const isHome = article.id === "willkommen";
+
   return (
     <div className="kb-root">
       <Header />
@@ -633,7 +704,14 @@ export default function App() {
           />
         </div>
         <main className="kb-shell__main" ref={readerRef}>
-          <ArticleBody article={article} />
+          {isHome ? (
+            <WillkommenPage
+              onOpenSearch={() => setSearchOpen(true)}
+              onPick={setArticleId}
+            />
+          ) : (
+            <ArticleBody article={article} />
+          )}
         </main>
       </div>
       <SearchOverlay

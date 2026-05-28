@@ -124,6 +124,7 @@ export const KIND_ICONS: Record<string, IconName> = {
   "dialog": "speech",
   "freies-sprechen": "mic",
   "willkommen": "compass",
+  "anleitung": "book",
   "click-tutorial": "click",
   "viel-erfolg": "flag",
 };

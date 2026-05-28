@@ -399,16 +399,20 @@ mark { background: var(--kb-accent-soft); color: inherit; padding: 0 2px; border
 .kb-badge--free { color: #4a7a14; }
 .kb-badge--free.is-soft { background: var(--kb-p-green); }
 
-/* Article footer */
+/* Article footer — PrevNext only */
 .kb-article__foot {
   margin-top: 32px;
   padding-top: 22px;
   border-top: 1px dashed var(--kb-line);
 }
+
+/* Vote widget — sits outside the article card */
+.kb-vote-outer {
+  padding: 18px 0 4px;
+}
 .kb-vote {
   display: flex; align-items: center; gap: 10px;
   flex-wrap: wrap;
-  margin-bottom: 22px;
 }
 .kb-vote__q { font-size: 13px; color: var(--kb-ink-2); margin-right: 6px; }
 .kb-vote__btn {
@@ -721,4 +725,165 @@ mark { background: var(--kb-accent-soft); color: inherit; padding: 0 2px; border
   .kb-article { padding: 22px 20px 20px; }
   .kb-article__title { font-size: 24px; }
   .kb-prevnext { grid-template-columns: 1fr; }
+}
+
+/* ============================================================
+   Home / Willkommen page
+   ============================================================ */
+.kb-home {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  animation: kb-fade .3s ease;
+}
+
+/* Cover placeholder */
+.kb-home__cover {
+  width: 100%;
+  aspect-ratio: 16 / 5;
+  min-height: 160px;
+  background: var(--kb-surface);
+  border: 2px dashed var(--kb-n-pastel);
+  border-radius: var(--kb-radius-lg);
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+.kb-home__cover-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  color: var(--kb-n-rock);
+  user-select: none;
+}
+.kb-home__cover-label {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  color: var(--kb-n-rock);
+}
+
+/* Search bar */
+.kb-home__search-wrap {
+  width: 100%;
+}
+.kb-home__search-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 13px 16px;
+  background: var(--kb-surface);
+  border: 1px solid var(--kb-line);
+  border-radius: var(--kb-radius-lg);
+  font: inherit;
+  font-size: 14px;
+  color: var(--kb-ink-3);
+  cursor: pointer;
+  text-align: left;
+  transition: border-color .12s, box-shadow .12s;
+}
+.kb-home__search-btn:hover {
+  border-color: var(--kb-line-2);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  color: var(--kb-ink-2);
+}
+.kb-home__search-btn > svg {
+  flex-shrink: 0;
+  color: var(--kb-ink-3);
+}
+.kb-home__search-placeholder {
+  flex: 1;
+}
+.kb-home__search-hint {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  margin-left: auto;
+  flex-shrink: 0;
+}
+
+/* Section grid */
+.kb-home__sections {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.kb-home__sections-heading {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--kb-ink-3);
+}
+.kb-home__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+@media (max-width: 860px) {
+  .kb-home__grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 520px) {
+  .kb-home__grid { grid-template-columns: 1fr; }
+}
+
+.kb-home__card {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 16px 18px 14px;
+  background: var(--kb-surface);
+  border: 1px solid var(--kb-line);
+  border-radius: var(--kb-radius-lg);
+  text-align: left;
+  cursor: pointer;
+  font: inherit;
+  color: var(--kb-ink);
+  transition: border-color .12s, box-shadow .12s, transform .12s;
+}
+.kb-home__card:hover {
+  border-color: var(--kb-line-2);
+  box-shadow: 0 4px 14px rgba(0,0,0,0.07);
+  transform: translateY(-2px);
+}
+.kb-home__card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 4px;
+}
+.kb-home__card-icon {
+  width: 36px;
+  height: 36px;
+  display: grid;
+  place-items: center;
+  background: var(--kb-p-blue);
+  color: var(--kb-a-blue);
+  border-radius: var(--kb-radius);
+}
+.kb-home__card-kicker {
+  font: 700 11px/1 var(--kb-mono);
+  letter-spacing: 0.1em;
+  color: var(--kb-n-rock);
+}
+.kb-home__card-label {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--kb-ink);
+}
+.kb-home__card-summary {
+  font-size: 12.5px;
+  color: var(--kb-ink-3);
+  line-height: 1.45;
+  flex: 1;
+}
+.kb-home__card-count {
+  margin-top: 6px;
+  font: 600 11px/1 var(--kb-mono);
+  letter-spacing: 0.06em;
+  color: var(--kb-n-bluish);
+  text-transform: uppercase;
 }

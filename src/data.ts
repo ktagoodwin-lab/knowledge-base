@@ -49,6 +49,16 @@ export const KB_DATA: KbData = {
           graded: null,
           lede:
             "In diesem Tutorial lernen Sie alle Aufgabentypen kennen und bekommen Tipps für die Bearbeitung der Aufgaben. Viel Spaß!",
+          body: [],
+          tags: ["Onboarding", "Einführung"],
+        },
+        {
+          id: "anleitung",
+          title: "Anleitung",
+          kind: "intro",
+          graded: null,
+          lede:
+            "Lesen Sie diese Anleitung, bevor Sie mit den Aufgaben beginnen — hier finden Sie alle wichtigen Hinweise zur Bearbeitung.",
           body: [
             {
               kind: "p",
