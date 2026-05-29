@@ -124,7 +124,7 @@ const Kbd = ({ children }: { children: ReactNode }) => (
 function GradedBadge({ graded }: { graded: boolean | null }) {
   if (graded === null || graded === undefined) return null;
   return (
-    <Badge tone={graded ? "graded" : "free"} icon={graded ? "graded" : "ungraded"} soft>
+    <Badge tone="neutral" icon={graded ? "graded" : "ungraded"} soft>
       {graded ? "Bewertet" : "Nicht bewertet"}
     </Badge>
   );
@@ -447,7 +447,7 @@ function ArticleBody({ article, query }: { article: FlatArticle; query?: string 
         </div>
         <div className="kb-article__meta">
           <GradedBadge graded={article.graded} />
-          {article.tags.map((t) => (
+          {article.tags.filter((t) => t !== "Bewertet").map((t) => (
             <Badge key={t} tone="neutral" soft>
               {t}
             </Badge>
