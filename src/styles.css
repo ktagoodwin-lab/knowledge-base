@@ -557,8 +557,7 @@ mark { background: var(--kb-accent-soft); color: inherit; padding: 0 2px; border
    Video shell demo
    ============================================================ */
 .demo {
-  background: var(--kb-bg-2);
-  border: 1px solid var(--kb-line);
+
   border-radius: 3px;
   padding: 14px;
   margin: 8px 0 22px;
@@ -588,6 +587,22 @@ mark { background: var(--kb-accent-soft); color: inherit; padding: 0 2px; border
   overflow: hidden;
   background: var(--kb-primary);
   border: 1px solid var(--kb-line);
+}
+
+.vimeo-wrap {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  border-radius: 3px;
+  overflow: hidden;
+  border: 1px solid var(--kb-line);
+}
+.vimeo-wrap iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
 }
 
 .gshell {

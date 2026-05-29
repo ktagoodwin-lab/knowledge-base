@@ -365,6 +365,21 @@ const GIF_DEMOS: Record<string, string> = {
   seifenblasen: "/Seifenblasen_Spiel_GIF.gif",
 };
 
+const VIMEO_IDS: Record<string, string> = {
+  lernkarten: "1196550791",
+  seifenblasen: "1196552973",
+  luecken: "1196558759",
+  sortieren: "1196564461",
+  markieren: "1196566087",
+  reihenfolge: "1196567825",
+  ergaenzen: "1196570035",
+  auswahl: "1196572577",
+  verbinden: "1196574271",
+  dialog: "1196609517",
+  "freies-schreiben": "1196618584",
+  "freies-sprechen": "1196623888",
+};
+
 function GifShell({ article, src }: { article: Article; src: string }) {
   return (
     <div className="demo demo--gif">
@@ -378,9 +393,36 @@ function GifShell({ article, src }: { article: Article; src: string }) {
   );
 }
 
+function VimeoShell({ article, id }: { article: Article; id: string }) {
+  return (
+    <div className="demo demo--vimeo">
+      <div className="demo__header">
+        <span className="demo__chip">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style={{ marginRight: 6 }}>
+            <path d="M8 5.5v13a1 1 0 0 0 1.55.83l10-6.5a1 1 0 0 0 0-1.66l-10-6.5A1 1 0 0 0 8 5.5z" />
+          </svg>
+          Video · Demo
+        </span>
+      </div>
+      <div className="vimeo-wrap">
+        <iframe
+          src={`https://player.vimeo.com/video/${id}?autoplay=1&muted=1`}
+          title={article.title}
+          allow="autoplay; fullscreen; picture-in-picture"
+          allowFullScreen
+          loading="lazy"
+          referrerPolicy="no-referrer"
+        />
+      </div>
+    </div>
+  );
+}
+
 // ---------- article body ----------
 function ArticleDemo({ article }: { article: FlatArticle }) {
   if (article.id === "willkommen" || article.id === "anleitung") return null;
+  const vimeoId = VIMEO_IDS[article.id];
+  if (vimeoId) return <VimeoShell article={article} id={vimeoId} />;
   const gif = GIF_DEMOS[article.id];
   if (gif) return <GifShell article={article} src={gif} />;
   return <VideoShell article={article} />;
