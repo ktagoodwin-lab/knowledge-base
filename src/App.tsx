@@ -390,7 +390,7 @@ function ArticleBody({ article, query }: { article: FlatArticle; query?: string 
   if (article.embedUrl) return <EmbedOnly article={article} />;
   return (
     <>
-    <article className="kb-article" key={article.id}>
+    <article className="kb-article">
       <header className="kb-article__head">
         <div className="kb-article__crumbs">
           <span>Wissensdatenbank</span>
@@ -457,7 +457,7 @@ function ArticleBody({ article, query }: { article: FlatArticle; query?: string 
 
       <ArticleFooter article={article} />
     </article>
-    <VoteWidget key={article.id} />
+    <VoteWidget />
     </>
   );
 }
@@ -710,7 +710,7 @@ export default function App() {
               onPick={setArticleId}
             />
           ) : (
-            <ArticleBody article={article} />
+            <ArticleBody key={article.id} article={article} />
           )}
         </main>
       </div>
