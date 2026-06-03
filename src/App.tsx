@@ -378,6 +378,10 @@ const VIMEO_IDS: Record<string, string> = {
   dialog: "1196609517",
   "freies-schreiben": "1196618584",
   "freies-sprechen": "1196623888",
+  "fehler-finden": "1197982858",
+  kreuzwortraetsel: "1197986536",
+  "fehler-korrigieren": "1197991150",
+  memory: "1197992785",
 };
 
 function GifShell({ article, src }: { article: Article; src: string }) {
@@ -420,7 +424,7 @@ function VimeoShell({ article, id }: { article: Article; id: string }) {
 
 // ---------- article body ----------
 function ArticleDemo({ article }: { article: FlatArticle }) {
-  if (article.id === "willkommen" || article.id === "anleitung") return null;
+  if (article.id === "willkommen" || article.id === "anleitung" || article.id === "viel-erfolg") return null;
   const vimeoId = VIMEO_IDS[article.id];
   if (vimeoId) return <VimeoShell article={article} id={vimeoId} />;
   const gif = GIF_DEMOS[article.id];
