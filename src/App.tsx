@@ -406,7 +406,7 @@ function VimeoShell({ article, id }: { article: Article; id: string }) {
       </div>
       <div className="vimeo-wrap">
         <iframe
-          src={`https://player.vimeo.com/video/${id}?autoplay=1&muted=1`}
+          src={`https://player.vimeo.com/video/${id}?autoplay=1&muted=1&controls=0`}
           title={article.title}
           allow="autoplay; fullscreen; picture-in-picture"
           allowFullScreen

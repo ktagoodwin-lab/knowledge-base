@@ -54,7 +54,7 @@ export const KB_DATA: KbData = {
         },
         {
           id: "anleitung",
-          title: "Anleitung",
+          title: "Hinweise",
           kind: "intro",
           graded: null,
           lede:
@@ -81,7 +81,7 @@ export const KB_DATA: KbData = {
         },
         {
           id: "click-tutorial",
-          title: "Click-Through Tutorial",
+          title: "Interaktive Führung",
           kind: "intro",
           graded: null,
           embedUrl: "https://elearning-tutorial.onrender.com",
