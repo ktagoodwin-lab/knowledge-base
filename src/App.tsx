@@ -443,12 +443,7 @@ function ArticleBody({ article, query }: { article: FlatArticle; query?: string 
           <Icon name="chevron-right" size={12} />
           <span className="kb-article__crumbs-section">{article.sectionLabel}</span>
         </div>
-        <div className="kb-article__title-row">
-          <div>
-            <h1 className="kb-article__title">{highlight(article.title, query ?? "")}</h1>
-            <p className="kb-article__lede">{highlight(article.lede, query ?? "")}</p>
-          </div>
-        </div>
+        <h1 className="kb-article__title">{highlight(article.title, query ?? "")}</h1>
         <div className="kb-article__meta">
           <GradedBadge graded={article.graded} />
           {article.tags.filter((t) => t !== "Bewertet").map((t) => (
@@ -459,7 +454,7 @@ function ArticleBody({ article, query }: { article: FlatArticle; query?: string 
         </div>
       </header>
 
-      <ArticleDemo article={article} />
+      <p className="kb-article__lede">{highlight(article.lede, query ?? "")}</p>
 
       {article.body.length > 0 && (
         <div className="kb-article__body">
@@ -490,6 +485,14 @@ function ArticleBody({ article, query }: { article: FlatArticle; query?: string 
                   <div className="kb-callout__text">{highlight(b.text, query ?? "")}</div>
                 </div>
               );
+            if (b.kind === "steps")
+              return (
+                <ol key={i} className="kb-article__steps">
+                  {b.items.map((item, j) => (
+                    <li key={j} className="kb-article__step">{item}</li>
+                  ))}
+                </ol>
+              );
             if (b.kind === "signoff")
               return (
                 <p key={i} className="kb-article__signoff">
@@ -500,6 +503,8 @@ function ArticleBody({ article, query }: { article: FlatArticle; query?: string 
           })}
         </div>
       )}
+
+      <ArticleDemo article={article} />
 
       <ArticleFooter article={article} />
     </article>

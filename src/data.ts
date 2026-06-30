@@ -4,7 +4,8 @@ export type ArticleBlock =
   | { kind: "p"; text: string }
   | { kind: "tip"; text: string }
   | { kind: "callout"; tone?: "success" | "neutral"; title: string; text: string }
-  | { kind: "signoff"; text: string };
+  | { kind: "signoff"; text: string }
+  | { kind: "steps"; items: string[] };
 
 export type Article = {
   id: string;
@@ -333,9 +334,13 @@ export const KB_DATA: KbData = {
             "Bei diesem Aufgabentyp sprechen Sie einen Dialog in der Rolle eines der beiden Gesprächspartner nach.",
           body: [
             {
-              kind: "p",
-              text:
-                "Lesen Sie zunächst den Dialog. Wählen Sie eine Rolle aus, indem Sie auf das Bild eines Gesprächspartners klicken. Sprechen Sie nun die Sequenzen Ihrer Rolle nach und nehmen Sie sich dabei auf. Klicken Sie am Ende auf Alles Wiedergeben und hören Sie sich den Dialog an.",
+              kind: "steps",
+              items: [
+                "Lesen Sie zunächst den Dialog.",
+                "Wählen Sie eine Rolle aus, indem Sie auf das Bild eines Gesprächspartners klicken.",
+                "Sprechen Sie nun die Sequenzen Ihrer Rolle nach und nehmen Sie sich dabei auf.",
+                "Klicken Sie am Ende auf Alles Wiedergeben und hören Sie sich den Dialog an.",
+              ],
             },
           ],
           tags: ["Sprechen", "Aufnahme"],
