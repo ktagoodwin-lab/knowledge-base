@@ -352,8 +352,8 @@ body::-webkit-scrollbar { display: none; }
   height: 22px;
   display: grid;
   place-items: center;
-  background: var(--kb-accent-soft);
-  color: var(--kb-accent-ink);
+  background: var(--kb-n-silver);
+  color: var(--kb-primary);
   font: 700 11px/1 var(--kb-mono);
   border-radius: 999px;
 }
