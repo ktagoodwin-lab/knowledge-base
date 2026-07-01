@@ -39,13 +39,13 @@ export const KB_DATA: KbData = {
   sections: [
     {
       id: "einstieg",
-      label: "Quick Start",
+      label: "Erste Schritte",
       kicker: "01",
       summary: "Willkommen und Grundlagen für die Bearbeitung Ihrer Aufgaben.",
       articles: [
         {
           id: "willkommen",
-          title: "Willkommen im Tutorial",
+          title: "Übersicht",
           kind: "intro",
           graded: null,
           lede:
@@ -55,7 +55,7 @@ export const KB_DATA: KbData = {
         },
         {
           id: "anleitung",
-          title: "Hinweise",
+          title: "Willkommen im Tutorial",
           kind: "intro",
           graded: null,
           lede:
