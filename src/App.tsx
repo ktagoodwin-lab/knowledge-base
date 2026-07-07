@@ -42,6 +42,57 @@ function WillkommenPage({
         </button>
       </div>
 
+      {/* Intro */}
+      <div className="kb-home__intro">
+        <h2 className="kb-home__sections-heading">Über den Kurs</h2>
+        <p className="kb-home__intro-p">
+          Der Selbstlernkurs umfasst 30 Module zu Themen wie Arbeit, Lebensstil,
+          Beziehungen, Technologie, Gesundheit und Kunst.
+        </p>
+        <p className="kb-home__intro-p">
+          Jedes Modul beginnt mit einer Einführung, die beispielsweise ein Spiel,
+          eine Vokabelübung oder ein Gedankenexperiment sein kann. Weitere
+          Lektionsinhalte sind Vokabel- und Grammatikübungen, Lese- und
+          Hörverständnisübungen sowie Szenarien zum Üben von Sprechen und Schreiben.
+        </p>
+        <p className="kb-home__intro-p">
+          Viele Übungen werden automatisch bewertet, sobald Sie auf „Antworten
+          prüfen“ klicken. Schreib- und Sprechübungen werden jedoch nicht
+          automatisch ausgewertet. Sie können Ihre Schreibproben und Audioaufnahmen
+          herunterladen, um sie später noch einmal anzusehen und zu reflektieren.
+        </p>
+      </div>
+
+      {/* Tips */}
+      <div className="kb-home__tips">
+        <h2 className="kb-home__sections-heading">So nutzen Sie den Kurs</h2>
+        <ul className="kb-home__tips-list">
+          <li className="kb-home__tip">
+            Lesen Sie vor der Bearbeitung einer Aufgabe gründlich die Instruktion
+            durch. Oft finden Sie dort wichtige Hinweise zur Aufgabe. Achten Sie
+            auch auf Tipps, die Ihnen helfen können.
+          </li>
+          <li className="kb-home__tip">
+            Sind Sie sich sicher, dass Sie die richtige Lösung kennen? Dann klicken
+            Sie auf „Antworten prüfen“. Sie haben insgesamt zwei Versuche für jede
+            bewertete Aufgabe.
+          </li>
+          <li className="kb-home__tip">
+            Laden Sie die Wortschatzliste jedes Moduls herunter und nutzen Sie sie,
+            um die neuen Wörter und Ausdrücke zu wiederholen.
+          </li>
+          <li className="kb-home__tip">
+            Am Ende jedes Moduls können Sie Ihre Ergebnisse einsehen. Klicken Sie
+            dafür auf „Einreichen“.
+          </li>
+          <li className="kb-home__tip">
+            Sollten Sie mit Ihren Ergebnissen nicht zufrieden sein, können Sie die
+            Lektion zurücksetzen, indem Sie auf der Ergebnisseite auf das
+            Papierkorbsymbol klicken.
+          </li>
+        </ul>
+      </div>
+
       {/* Section grid */}
       <div className="kb-home__sections">
         <h2 className="kb-home__sections-heading">Aufgabentypen</h2>
