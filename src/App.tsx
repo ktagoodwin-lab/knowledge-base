@@ -449,7 +449,9 @@ function ArticleBody({ article, query }: { article: FlatArticle; query?: string 
         </div>
       </header>
 
-      <p className="kb-article__lede">{highlight(article.lede, query ?? "")}</p>
+      {article.lede && (
+        <p className="kb-article__lede">{highlight(article.lede, query ?? "")}</p>
+      )}
 
       {article.body.length > 0 && (
         <div className="kb-article__body">

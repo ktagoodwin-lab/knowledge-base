@@ -58,8 +58,7 @@ export const KB_DATA: KbData = {
           title: "Willkommen im Tutorial",
           kind: "intro",
           graded: null,
-          lede:
-            "Lesen Sie diese Anleitung, bevor Sie mit den Aufgaben beginnen — hier finden Sie alle wichtigen Hinweise zur Bearbeitung.",
+          lede: "",
           body: [
             {
               kind: "p",
