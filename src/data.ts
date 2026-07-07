@@ -44,7 +44,7 @@ export const KB_DATA: KbData = {
       summary: "Willkommen und Grundlagen für die Bearbeitung Ihrer Aufgaben.",
       articles: [
         {
-          id: "willkommen",
+          id: "übersicht",
           title: "Übersicht",
           kind: "intro",
           graded: null,
@@ -54,7 +54,7 @@ export const KB_DATA: KbData = {
           tags: ["Onboarding", "Einführung"],
         },
         {
-          id: "anleitung",
+          id: "willkommen",
           title: "Willkommen im Tutorial",
           kind: "intro",
           graded: null,
@@ -81,7 +81,7 @@ export const KB_DATA: KbData = {
           tags: ["Onboarding", "Einführung"],
         },
         {
-          id: "click-tutorial",
+          id: "führung",
           title: "Interaktive Führung",
           kind: "intro",
           graded: null,

@@ -475,7 +475,7 @@ function VimeoShell({ article, id }: { article: Article; id: string }) {
 
 // ---------- article body ----------
 function ArticleDemo({ article }: { article: FlatArticle }) {
-  if (article.id === "willkommen" || article.id === "anleitung" || article.id === "viel-erfolg") return null;
+  if (article.id === "übersicht" || article.id === "willkommen" || article.id === "viel-erfolg") return null;
   const vimeoId = VIMEO_IDS[article.id];
   if (vimeoId) return <VimeoShell article={article} id={vimeoId} />;
   const gif = GIF_DEMOS[article.id];
@@ -743,7 +743,7 @@ function Header() {
     <header className="kb-header">
       <div className="kb-header__inner">
         <div className="kb-header__brand-stack">
-          <a className="kb-header__brand" href="#willkommen">
+          <a className="kb-header__brand" href="#übersicht">
             <img
               className="kb-header__brand-logo"
               src="/logo-dark-e1706538837575.png"
@@ -761,7 +761,7 @@ function Header() {
 
 // ---------- root ----------
 export default function App() {
-  const defaultId = "willkommen";
+  const defaultId = "übersicht";
   const [articleId, setArticleId] = useHash(defaultId);
   const [searchOpen, setSearchOpen] = useState(false);
 
@@ -786,7 +786,7 @@ export default function App() {
     if (readerRef.current) readerRef.current.scrollTop = 0;
   }, [articleId]);
 
-  const isHome = article.id === "willkommen";
+  const isHome = article.id === "übersicht";
 
   return (
     <div className="kb-root">
