@@ -64,12 +64,27 @@ export const KB_DATA: KbData = {
             {
               kind: "p",
               text:
-                "Lesen Sie vor der Bearbeitung einer Aufgabe gründlich die Instruktion durch. Oft finden Sie dort wichtige Hinweise zur Aufgabe. Achten Sie auch auf Tipps, die Ihnen helfen können.",
+                "Der Selbstlernkurs umfasst 30 Module zu Themen wie Arbeit, Lebensstil, Beziehungen, Technologie, Gesundheit und Kunst.",
             },
             {
               kind: "p",
               text:
+                "Jedes Modul beginnt mit einer Einführung, die beispielsweise ein Spiel, eine Vokabelübung oder ein Gedankenexperiment sein kann. Weitere Lektionsinhalte sind Vokabel- und Grammatikübungen, Lese- und Hörverständnisübungen sowie Szenarien zum Üben von Sprechen und Schreiben.",
+            },
+            {
+              kind: "p",
+              text:
+                "Viele Übungen werden automatisch bewertet, sobald Sie auf „Antworten prüfen“ klicken. Schreib- und Sprechübungen werden jedoch nicht automatisch ausgewertet. Sie können Ihre Schreibproben und Audioaufnahmen herunterladen, um sie später noch einmal anzusehen und zu reflektieren.",
+            },
+            {
+              kind: "steps",
+              items: [
+                "Lesen Sie vor der Bearbeitung einer Aufgabe gründlich die Instruktion durch. Oft finden Sie dort wichtige Hinweise zur Aufgabe. Achten Sie auch auf Tipps, die Ihnen helfen können.",
                 "Sind Sie sich sicher, dass Sie die richtige Lösung kennen? Dann klicken Sie auf „Antworten prüfen“. Sie haben insgesamt zwei Versuche für jede bewertete Aufgabe.",
+                "Laden Sie die Wortschatzliste jedes Moduls herunter und nutzen Sie sie, um die neuen Wörter und Ausdrücke zu wiederholen.",
+                "Am Ende jedes Moduls können Sie Ihre Ergebnisse einsehen. Klicken Sie dafür auf „Einreichen“.",
+                "Sollten Sie mit Ihren Ergebnissen nicht zufrieden sein, können Sie die Lektion zurücksetzen, indem Sie auf der Ergebnisseite auf das Papierkorbsymbol klicken.",
+              ],
             },
             {
               kind: "callout",

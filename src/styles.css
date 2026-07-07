@@ -842,61 +842,6 @@ mark { background: var(--kb-accent-soft); color: inherit; padding: 0 2px; border
   flex-shrink: 0;
 }
 
-/* Intro copy */
-.kb-home__intro {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-.kb-home__intro-p {
-  margin: 0;
-  font-size: 15px;
-  line-height: 1.65;
-  color: var(--kb-ink-2);
-}
-
-/* Tips */
-.kb-home__tips {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-.kb-home__tips-list {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  counter-reset: kb-tip;
-}
-.kb-home__tip {
-  position: relative;
-  padding: 14px 16px 14px 48px;
-  background: var(--kb-surface);
-  border: 1px solid var(--kb-line);
-  border-radius: var(--kb-radius-lg);
-  font-size: 14px;
-  line-height: 1.6;
-  color: var(--kb-ink-2);
-  counter-increment: kb-tip;
-}
-.kb-home__tip::before {
-  content: counter(kb-tip);
-  position: absolute;
-  left: 14px;
-  top: 14px;
-  width: 22px;
-  height: 22px;
-  display: grid;
-  place-items: center;
-  border-radius: 999px;
-  background: var(--kb-n-pastel);
-  color: var(--kb-ink);
-  font-size: 12px;
-  font-weight: 700;
-}
-
 /* Section grid */
 .kb-home__sections {
   display: flex;
